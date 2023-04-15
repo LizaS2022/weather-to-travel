@@ -1,5 +1,36 @@
-#todayWeather {
-    border: 3px solid black;
-    border-radius:5px;
+:root {
+    --light: white;
+    --dark: #292F33;
+}
+
+
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 16px;
+}
+
+
+
+header {
+    background-color: blue;
+    color: var(--light);
     
 }
+
+h1 {
+    font-weight: 700;
+    padding: 25px;
+    text-align: center;
+}
+
+.card {
+    background-color: var(--dark);
+    color: var(--light);
+}
+
+.search-card {
+    background-color: var(--light);
+    color: var(--dark)
+}
+
