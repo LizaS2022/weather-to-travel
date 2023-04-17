@@ -25,33 +25,29 @@
     <h1>Weather Database <span id="current-date"></span></h1>
   </header>
 
-  <main>
-     <div id="main-div">
-
-
-     </div>
- 
-    <section>
-      <div id="cards-div" class="container row row-cols-1 row-cols-md-5 mb-3 text-left">
-
+  <div id="wraper-div" class="wraper-div row g-5">
+    <main class="col-md-8 col-lg-9 col-sm-12">
+       <div id="main-div">
        </div>
-    </section>
-  </main>
-
-  <aside>
-
-    <div class="search-card card">
-      <h3 class="card-header text-uppercase">Search By City</h3>
-      <form id="user-form" class="card-body">
-        <label class="form-label" for="text">City Name</label>
-        <input name="text" id="user-input" type="text" autofocus="true" class="form-input rounded" />
-        <button id="search-btn" type="submit" class="btn btn-primary">Search</button>
-      </form>
-
-      <div></div>
-    </div>
-
-  </aside>
+      <section>
+        <div id="cards-div" class="container row row-cols-1 row-cols-md-5 mb-3 text-left">
+         </div>
+      </section>
+    </main>
+    <aside class="col-md-4 col-lg-3 col-sm-12 order-md-first">
+      <div class="search-card card">
+        <h3 class="card-header text-uppercase">Search By City</h3>
+        <form id="user-form" class="card-body">
+          <label class="form-label" for="text">City Name</label>
+          <input name="text" id="user-input" type="text" autofocus="true" class="form-input rounded" />
+          <button id="search-btn" type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="">
+          <div id="prev-btn-location"></div>
+        </div>
+      </div>
+    </aside>
+  </div>
 
 
     <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
