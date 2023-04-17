@@ -3,11 +3,13 @@
 var searchBtn = $("#search-btn");
 var currentDate = dayjs().format("MM/DD/YYYY");
 var wraperDivEl = $("#wrapper-div");
+var city = $("#user-input").val().toLowerCase().trim();
+
+
 
 searchBtn.on("click", function(event){
   event.preventDefault();
   WeatherConditionApiCall();  
-  
 });
 
 function WeatherConditionApiCall() {
@@ -116,9 +118,6 @@ function setFiveDaysToStorage(city,arrayOfFiveDays) {
   displaySixDaysWeather(sixDaysWeather);
   
 }
-
-
-
 
 function setWeatherDataToLocalStorage(data) {
   console.log("thi set current date is called")
