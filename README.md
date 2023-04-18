@@ -8,4 +8,4 @@ Links
 
 Link of the deployed application.
 
-Link of the GitHub repository.
+[Link of the GitHub repository](https://github.com/LizaS2022/weather-to-travel.git).
