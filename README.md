@@ -6,6 +6,6 @@ This is a weather app that allows the user to search for a city and be presented
 
 Links
 
-Link of the deployed application.
+[Link of the deployed application](https://lizas2022.github.io/weather-to-travel/).
 
 [Link of the GitHub repository](https://github.com/LizaS2022/weather-to-travel.git).
