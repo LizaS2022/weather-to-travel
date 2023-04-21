@@ -13,7 +13,7 @@ searchBtn.on("click", function(event){
 
 function WeatherConditionApiCall() {
   var city = $("#user-input").val().toLowerCase().trim();
-  var currentWeatherApiKey = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=db39f54408315ce8f4c7ba5f7fcc11fb&units=imperial&speed=miles/hour";
+  var currentWeatherApiKey = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=db39f54408315ce8f4c7ba5f7fcc11fb&units=imperial&speed=miles/hour";
   fetch(currentWeatherApiKey).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
