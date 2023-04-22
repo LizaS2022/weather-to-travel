@@ -41,6 +41,7 @@ function WeatherConditionApiCall() {
 function CurrentWeather(data){
 
     var city = $("#user-input").val().toLowerCase().trim();
+    var capitalizeCity = city.charAt(0).toUpperCase() + city.slice(1);
     var mainDiv = $("#main-div");
     mainDiv.text("");
     var divEl = $("<div>").attr("class", "container col card mb-4 rounded-3 shadow-sm");
@@ -48,7 +49,7 @@ function CurrentWeather(data){
     var innerDivEl = $("<div>").attr("class","card-body");
     divEl.append(innerDivEl);
     var titleEl = $("<h4>").attr("class","my-0 fw-normal").attr("id","title-"+1);
-    titleEl.text(city +" " + currentDate);
+    titleEl.text(capitalizeCity +" " + currentDate);
     innerDivEl.append(titleEl);
     var listEl = $("<ul>").attr("class","list-unstyled mt-3 mb-4");
     innerDivEl.append(listEl);
@@ -67,6 +68,7 @@ function CurrentWeather(data){
 function fiveDayDisplay(data) {
 
   var city_value = $("#user-input").val().toLowerCase().trim();
+  var capitalizeCity = city_value.charAt(0).toUpperCase() + city_value.slice(1);
   var cardsDivEl = $("#cards-div");
   cardsDivEl.text("");
   saveDatafiveDay = [];
@@ -82,7 +84,7 @@ function fiveDayDisplay(data) {
     var innerDivEl = $("<div>").attr("class","card-body");
     divEl.append(innerDivEl);
     var titleEl = $("<h4>").attr("class","my-0 fw-normal").attr("id","title-"+(element_id_index));
-    titleEl.text(city_value + " " + dateEl);
+    titleEl.text(capitalizeCity + " " + dateEl);
     innerDivEl.append(titleEl);
     var listEl = $("<ul>").attr("class","list-unstyled mt-3 mb-4");
     innerDivEl.append(listEl);
@@ -133,15 +135,20 @@ function setFiveDaysToStorage(city,arrayOfFiveDays) {
 function displaySixDaysWeather(sixDaysWeather) {
   
     var searchHistoryContainerEl = $("#searchHistoryContainer");
-    var btnHistoryCity = $("<button>").text(sixDaysWeather[0].city);
+    var btnHistoryCity = $("<button>").attr("class", "btn btn-secondary btn-lg").text(sixDaysWeather[0].city);
     var cityHistory = sixDaysWeather[0].city;
+
+
+
     searchHistoryContainerEl.append(btnHistoryCity);
+    searchHistoryContainerEl.append("<br>")
     
     btnHistoryCity.on("click", function(event){
       event.preventDefault();
       displayResultsFromDataCity(event.target.innerText);
     })
     };
+  
 
   
   function displayResultsFromDataCity(city){
