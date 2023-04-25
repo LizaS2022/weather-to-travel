@@ -13,11 +13,10 @@ searchBtn.on("click", function(event){
 
 function WeatherConditionApiCall() {
   var city = $("#user-input").val().toLowerCase().trim();
-  var currentWeatherApiKey = "https://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=db39f54408315ce8f4c7ba5f7fcc11fb&units=imperial&speed=miles/hour";
+  var currentWeatherApiKey = "http://api.openweathermap.org/data/2.5/weather?q=" + city + "&appid=db39f54408315ce8f4c7ba5f7fcc11fb&units=imperial&speed=miles/hour";
   fetch(currentWeatherApiKey).then(function (response) {
     if (response.ok) {
       response.json().then(function (data) {
-        console.log(data);
         CurrentWeather(data);
     });
   } else {
@@ -119,6 +118,7 @@ function setWeatherDataToLocalStorage(data) {
         wind: data.wind.speed
       }]
     var savetoLocalStorage1 = localStorage.setItem(city_value,JSON.stringify(CurrentDayweatherObj));
+    console.log(savetoLocalStorage1);
 }
 
 
@@ -133,21 +133,33 @@ function setFiveDaysToStorage(city,arrayOfFiveDays) {
 
 
 function displaySixDaysWeather(sixDaysWeather) {
-  
+  var cityHistory = sixDaysWeather[0].city;
     var searchHistoryContainerEl = $("#searchHistoryContainer");
-    var btnHistoryCity = $("<button>").attr("class", "btn btn-secondary btn-lg").text(sixDaysWeather[0].city);
-    var cityHistory = sixDaysWeather[0].city;
+    searchHistoryContainerEl .empty();
 
-
-
-    searchHistoryContainerEl.append(btnHistoryCity);
-    searchHistoryContainerEl.append("<br>")
+    for (var i=0 ; i < localStorage.length ; i++) {
+      var city = localStorage.key(i);
+      var btnHistoryCity = $("<button>").attr("class", "btn btn-secondary mb-3").text(city);
+      searchHistoryContainerEl.append(btnHistoryCity);
+      searchHistoryContainerEl.append("<br>")
     
-    btnHistoryCity.on("click", function(event){
-      event.preventDefault();
-      displayResultsFromDataCity(event.target.innerText);
-    })
-    };
+      btnHistoryCity.on("click", function(event){
+        event.preventDefault();
+        displayResultsFromDataCity(event.target.innerText);
+      })
+      };
+
+
+    }
+    
+   
+    
+
+
+
+    
+    
+    
   
 
   
@@ -155,6 +167,7 @@ function displaySixDaysWeather(sixDaysWeather) {
 
     var sixDaysWeather =(JSON.parse(localStorage.getItem(city)));
     for (var i =0; sixDaysWeather.length > i; i++){
+      
       var titleEl = $("#title-"+(i+1)).text(sixDaysWeather[i].city + " " + sixDaysWeather[i].date);
       var li1El = $("#temp-"+(i+1)).text("Temperature: " + sixDaysWeather[i].temperature +"F");
       var li2El = $("#humidity-"+(i+1)).text(sixDaysWeather[i].humidity + "%");
