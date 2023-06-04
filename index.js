@@ -139,6 +139,7 @@ function displaySixDaysWeather(sixDaysWeather) {
 
     for (var i=0 ; i < localStorage.length ; i++) {
       var city = localStorage.key(i);
+      console.log(city);
       var btnHistoryCity = $("<button>").attr("class", "btn btn-secondary mb-3").text(city);
       searchHistoryContainerEl.append(btnHistoryCity);
       searchHistoryContainerEl.append("<br>")
